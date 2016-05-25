@@ -15,7 +15,7 @@ var slackClient = new NodeSlackClient("NewbieServer", token, CHANNEL_ID, functio
                     // optionally, you can supply a callback to execute once the message has been sent
                 });
             } else {
-                rtm.sendMessage('server start successfully' CHANNEL_ID, function messageSent() {
+                rtm.sendMessage('server start ok!', CHANNEL_ID, function messageSent() {
                     // optionally, you can supply a callback to execute once the message has been sent
                 });
             }
@@ -42,7 +42,7 @@ var slackClient = new NodeSlackClient("NewbieServer", token, CHANNEL_ID, functio
                         // optionally, you can supply a callback to execute once the message has been sent
                     });
                 } else {
-                    slackClient.sendMessage('server restart ok:', CHANNEL_ID, function messageSent() {
+                    slackClient.sendMessage('server restart ok!', CHANNEL_ID, function messageSent() {
                         // optionally, you can supply a callback to execute once the message has been sent
                     });
                 }
