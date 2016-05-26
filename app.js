@@ -1,5 +1,5 @@
 var CHANNEL_ID = 'D13AHGWMS';
-var APP_DIR = "/Users/luchenjie/Desktop/NewbieServer";
+var APP_DIR = "/ProjectNewbie/NewbieServer";
 var cp = require('child_process');
 
 var NodeSlackClient = require('./Node-Slack-Client/NodeSlackClient');
@@ -22,15 +22,15 @@ var slackClient = new NodeSlackClient("NewbieServer", token, CHANNEL_ID, functio
             
         });
     } else if(msg && msg.trim() === 'deploy') {/* && git checkout master */
-        cp.exec('cd '+APP_DIR+' && git checkout master && git pull && npm install', {}/*options, [optiona]l*/, function(err, stdout, stderr){
+        cp.exec('cd '+APP_DIR+' && git pull && npm install', {}/*options, [optiona]l*/, function(err, stdout, stderr){
             console.log('stdout: ' + stdout);
             console.log('stderr: ' + stderr);
             if(stderr) {
-                slackClient.sendMessage('git checkout failed:'+stderr, CHANNEL_ID, function messageSent() {
+                slackClient.sendMessage('git pull failed:'+stderr, CHANNEL_ID, function messageSent() {
                     // optionally, you can supply a callback to execute once the message has been sent
                 });
             } else {
-                slackClient.sendMessage('git checkout ok:'+stdout, CHANNEL_ID, function messageSent() {
+                slackClient.sendMessage('git pull ok:'+stdout, CHANNEL_ID, function messageSent() {
                     // optionally, you can supply a callback to execute once the message has been sent
                 });
             }
