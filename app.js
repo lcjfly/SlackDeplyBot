@@ -3,7 +3,7 @@ var APP_DIR = "/ProjectNewbie/NewbieServer";
 var cp = require('child_process');
 
 var NodeSlackClient = require('./Node-Slack-Client/NodeSlackClient');
-var token = process.env.SLACK_API_TOKEN || 'xoxb-37378494434-idszuryY6uVHv7EoaNlAqril';
+var token = process.env.SLACK_API_TOKEN || 'xoxb-37378494434-JPg5OHLhXef4yKMXxqwKi2wf';
 var slackClient = new NodeSlackClient("NewbieServer", token, CHANNEL_ID, function(msg) {
     console.log(msg);
     if(msg.trim() === 'start') {
